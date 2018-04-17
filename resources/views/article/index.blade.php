@@ -7,13 +7,19 @@
 	<?php $no=1; ?>
 	@foreach($article as $row)
 
-	</b>Article NUmber {{$no++}}</b><br>
-	- 	itle = {{$row->title}} <br>	
-	-	Content = (substr($row->content, 0 . ,10));
+	</b>Article Number {{$no++}}</b>
+<br>
+	- 	Title = {{$row->title}}
+<br>	
+	-	Content = {{substr($row->content,0, 10)}}
+<br>
 	- 	action = 
-			<a her="{{url('article/show/', $row->id)}}">Detail</a>|
-			<a her="{{url('article/edit/', $row->id)}}">Edit</a>|
-			<a her="{{url('article/delete/', $row->id)}}">Delete</a>|
+			<a href=" {{url('article/show',$row->id)}} ">show</a>
+			<a href=" {{url('article/edit',$row->id)}} ">edit</a>
+			<a href=" {{url('article/hapus', $row->id)}} ">delete</a> <br>
+<br>
 	@endforeach
+
+	{{$article->links()}}
 
 </body>
